@@ -1,0 +1,92 @@
+# Quy trình phân tích dữ liệu cơ bản với R
+
+<Add image>
+
+(Source: R for Data science)
+
+Chào mừng mọi người đã đến với bài giảng tiếp theo trong chuỗi bài giảng chia sẻ **R4All**. Bài giảng này sẽ hướng dẫn cho mọi người một cái nhìn khái quát về quy trình phân tích dữ liệu nói chung và cách lồng ghép R vào quy trình này để đạt được mục tiêu phân tích.
+
+Qua quá trình làm việc với nhiều bạn sinh viên cũng như các anh chị khi mới bắt đầu vào phân tích, mọi người thường không nắm rõ một quy trình phân tích cụ thể. Lý do chủ quan là do các anh chị và các bạn này mới bắt đầu vào phân tích, lý do khách quan là không có nhiều tài liệu đề cập đến vấn đề này dù rằng đây là một vấn đề rất cơ bản và quan trọng cho bất cứ cá nhân nào thực hiện phân tích dữ liệu.
+
+Do vậy sau khi đọc xong bài giảng này, anh chị và các bạn sẽ hiểu được một quy trình cơ bản trong phân tích dữ liệu từ đó đặt ra mục tiêu để có những chiến thuật phân tích phù hợp. Theo kinh nghiệm bản thân và từ các tài liệu tham khảo, phân tích dữ liệu thường trải qua các bước sau: \* Bước 1. Xác định câu hỏi phân tích/ mục tiêu phân tích. \* Bước 2. Thiết lập môi trường quản lý phân tích dữ liệu \* Bước 3. Chuẩn bị và nhập dữ liệu vào R \* Bước 4. Kiểm tra và làm sạch dữ liệu \* Bước 5. Xuất dữ liệu đã làm sạch \* Bước 6: Phân tích mô tả
+
+## Xác định câu hỏi phân tích (mục tiêu phân tích)
+
+Việc xác định mục tiêu phân tích cực kì quan trọng vì nó giúp anh chị tập trung hơn và tránh lạc hướng trong quá trình xử lý dữ liệu. Bên cạnh đó việc xác định mục tiêu phân tích cũng giúp anh chị xác định các phương pháp thống kê cần thiết cho phân tích dữ liệu và các nguồn số liệu cần thiết. Qua đó giúp chúng ta tiết kiệm thời gian và nguồn lực phân tích. Trong quá trình xác định mục tiêu phân tích, chúng ta cũng có thể tham khảo ý kiến góp ý từ những người xung quang, các giáo viên hướng dẫn, anh chị và bạn bè. Mục tiêu phân tích có thể được xây dựng dựa vào mục tiêu nghiên cứu, khung lý thuyết trong nghiên cứu. Trong mục tiêu phân tích chúng ta cần xác định được cơ bản các yếu tố sau: Cấp độ phân tích: mô tả, xây dựng mô hình, tìm kiếm mối quan hệ (Tìm hiểu các cấp độ phân tích trong nghiên cứu...)
+
+-   Xác định các biến số
+
+-   Biến số chính hay kết quả (Biến số phụ thuộc) và các biến số liên quan. Ví dụ: Phân tích số lượng ca mắc COVID-19 và các yếu tố liên quan ở các quốc gia châu Á.
+
+-   Từ mục tiêu trên, chúng ta có thể xác định được số lượng ca mắc COVID-19 là biến số chính cần quan tâm. Các biến số liên quan gồm: danh sách tên các quốc gia thuộc châu Á, Các yếu tố ảnh hưởng đến số lượng ca mắc: chính sách phòng dịch, tỷ lệ bao phủ vắc xin, tỷ lệ xét nghiệm COVID-19, đặc điểm sức khỏe dân số của quốc gia đó, ...
+
+-   Cấp độ phân tích ở đây là mô tả và xây dựng mô hình để phát hiện các yếu tố liên quan.
+
+## Thiết lập môi trường quản lý phân tích dữ liệu
+
+Nhiều người khi mới bắt đầu sử dụng có xu hướng bắt tay vào phân tích ngay lập tức và không chuẩn bị môi trường quản lý dữ liệu. Điều này dẫn đến tác hại lâu dài trong việc quản lý phân tích dữ liệu và làm tốn rất nhiều thời gian để truy tìm file sau này vì bị lạc mất file, xóa nhầm, quên mất phiên bản phân tích mới nhất, gặp trở ngại khi chia sẻ project với những người xung quanh... Do vậy hay dành chút thời gian thiết lập môi trường và tạo thói quen trước khi bắt đầu các bước phân tích dữ liệu đầu tiên. Đầu tiên chúng ta cần tạo một thư mục và đặt tên thư mục theo tên dự án ngắn gọn. Trong thư mục này, chúng ta sẽ tạo ra các thư mục con gồm: dataset, scripts (code), results, plots. Mọi người có thể tham khảo hình bên dưới để biết rõ hơn về cách xây dựng hệ thống thư mục trong project.
+
+-   Tạo R projects -- Tiếp cận với R một cách hệ thống
+
+Nếu anh chị nào có kinh nghiệm làm việc với các phần mềm thống kế khác như STATA hay SAS, anh chị có gặp trường hợp tải câu lệnh về nhưng khi chạy lệnh không thể mở file lên được và luôn báo lỗi đường dẫn này không tồn tại. Đây chính là lý do chúng ta cần nắm một khái niệm cơ bản đó là đường dẫn tuyệt đối và đường dẫn tương đối trong khi làm việc với các phần mềm lập trình, và R không là ngoại lệ. Đường dẫn ở đây là con đường chúng ra cần vạch ra để giúp R có thể lấy được các file dữ liệu hoặc file câu lệnh. Nếu chúng ta sử dụng đường dẫn tuyệt đối -\> chúng ta sẽ gặp nhiều vấn đề khi mở file câu lệnh, dữ liệu trên máy tính khác do đường dân này đã bị thay đổi ở máy khác và đây được gọi là hiện tượng đứt gãy liên kết. Từ đó người ta đã phát minh ra loại đường dẫn linh hoạt hơn gọi là đường dẫn tương đối, chúng ta chỉ quan tâm phần ngọn, còn phần gốc có thể tùy nhỉ.
+
+-   Để hiểu hơn cùng xem ví dụ dưới dây:
+
+Đường dẫn tuyệt đối: "G:\My Drive\Summer Projects\education project" Đường dẫn tương đối: "...\Summer Projects\education project" Về phần này, em sẽ trình bày rõ hơn trong phần tiếp theo nhập và xuất dữ liệu.
+
+## Chuẩn bị và nhập dữ liệu vào R
+
+Một điểm rất nổi bật từ R đó là có thể đọc được nhiều loại file khác nhau. Hôm nay mình sẽ giới thiệu anh chị một số cách để nhập dữ liệu vào R cũng như một số bước để nhập dữ liệu
+
+-   Bước 1. Xác định vị trí file dữ liệu Để nhập dữ liệu vào R có hệ thống, anh chị cần tải hết tất cả các file dữ liệu có liên quan vào thư mục dataset chúng ta đã tạo trước đó.
+
+-   Bước 2. Xác định được định dạng dữ liệu Sau đó chúng ta cần xác định các định dạng đuôi của file chúng ta nhập vào. Một số định dạng file dữ liệu thường gặp gồm: csv (định dạng file các cột được chia cách bằng dấu phẩy), excel, RData (lưu trữ dữ liệu và các tệp đối tượng trên R), Rds (lưu trữ dữ liệu trên R), sav, sas, STATA.
+
+*Lưu ý*: trong quá trình phân tích dữ liệu khi xuất file thường chọn file csv vì nó giúp hỗ trợ nhận diện từ nhiều phần mềm. Tuy nhiên việc lưu trữ file dữ liệu bằng RData hoặc RDs có một điểm rất thuận lợi đó là giữ lại được định dạng của các tệp dữ liệu, bảng biểu đã được tạo ra trong quá trình phân tích.
+
+-   Bước 3. Dùng hàm package trong R để nhập dữ liệu Một số package dùng để nhập dữ liệu vào R bao gồm
+
+-   Bước 4: Mở file dữ liệu và kiểm tra sơ bộ dữ liệu nhập vào có hoàn chỉnh.
+
+    -   Nếu file dữ liệu nhập vào hoàn chỉnh, chúng ta sẽ đi đến bước tiếp theo
+    -   Nếu không chung ta sẽ cần kiểm tra lại file dữ liệu và sử dụng hàm nhập khác ở bước 3. VD: Nhập dữ liệu từ file excel\
+
+-   Bước 5. Ghép nối dữ liệu nếu cần Về cơ bản có 3 kiểu ghép nối dữ liệu Ghép dữ liệu dựa vào bổ sung thêm hàng Ghép dữ liệu dựa vào bổ sung thêm cột Ghép dữ liệu dựa vào mã ID Ngoài ra, còn có một số cách nâng cao để nhập dữ liệu từ trang web trực tiếp và không cần phải tải dữ liệu.
+
+## Kiểm tra và làm sạch dữ liệu
+
+Sau khi nhập dữ liệu, một số câu hỏi chúng ta cần đặt ra đó là: - Dữ liệu có nhiều missing data không - Các biến số ghi nhận vào có định dạng đúng không? - Có nhiều giá trị outliers trong các nhóm biến không? - Có biến số nào chúng ta cần nhóm lại không? - Biến số nào cần tính toán lại? - Liệu chúng ta có cần dùng hết bộ dữ liệu hay chỉ cần giữ lại các biến số chúng ta thực sự quan tâm? Sau đây, em sẽ giới thiệu mọi người các bước kiểm tra và làm sạch dữ liệu cũng như các cú pháp câu lệnh giúp trả lời hết các vấn đề nếu trên
+
+-   Bước 1. Nhìn sơ qua bộ dữ liệu để kiểm tra các định dạng biến, các giá trị outliers,... - str df -\> xác định danh sách biến định lượng, định tính. =\> xác định các biến có định dạng sai -\> Lựa chọn các biến cần thiết và không cần thiết =\> lọc lại data -Xác định các biến số mới cần thiết để tính toán dựa trên các biến số cũ =\> mutate với điều kiện Mutate(varA' = VarA/100)
+
+-   Bước 2. Bảng tần số để đánh giá phân bố dữ liệu của biến số định tính -\> xác định các nhóm biến số rời rạc =\> Tiến hành gộp nhóm Mutate( varB = case_when( ) Bước 3. Dùng đồ thị để xác định phân bố dữ liệu của biến số định lượng =\> Tiến hàng lọc các giá trị
+
+Bước 4. Kiểm tra tính logic giữa các biến. Chúng ta sẽ lựa chọn các câu hỏi có liên quan và dựa vào bảng tần số để kiểm tra.
+
+## Xuất dữ liệu đã làm sạch
+
+Sau khi đã làm sạch dữ liệu -- chúng ta cần lưu trữ lại để tiết kiệm thời gian Ưu nhược điểm của một số định dạng file phổ biến
+
+| Định dạng file | Ưu điểm                                                                                                  | Nhược điểm                                                                      |
+|-----------------|-------------------------------|------------------------|
+| csv            | File dữ liệu có thể mở ở nhiều phần mềm khác nhau không cần chuyển đối                                   | Không có lưu trữ được định dạng                                                 |
+| Excel          | Là một định dạng khá phổ biến                                                                            | Có nhiều format cần xác định rõ trước khi nhập dữ liệu Tốc độ nhập dữ liệu chậm |
+| Rds/ RData     | Đây là dạng dữ liệu R giúp lưu trữ định dạng của các biến và dữ liệu Giúp nhập dữ liệu nhanh và hiệu quả | Chỉ đọc được dữ liệu ở phần mềm R                                               |
+
+Câu lệnh để xuất dữ liệu chúng sẽ áp dụng câu lệnh dưới đây. `{r} export([tên data xuất] ,here(["tên thư mục"], ["tên file"]))` Với dữ liệu đã được làm sạch, chúng ta sẽ đến với bước khai phá dữ liệu gồm **3 bước là 6, 7, 8**. Ba bước này tạo ra một vòng lặp giúp tạo ra một kết quả cuối cùng và phiên giải kết quả.
+
+<Hình các bước khai phá dữ liệu>
+
+## Phân tích mô tả
+
+Chúng ta có thể xây dựng bảng đơn và bảng chéo dựa vào nhóm câu lệnh group_by and summarize Tạo bảng đơn: + Bảng đơn cho định tính + Bảng đơn cho biến định lượng Tạo bảng chéo: + Bảng chéo cho biến định tính x định tính + Bảng chéo cho biến định tính x định lượng
+
+### Xây dựng bảng mô tả đơn biến
+
+-   Biến định tính Data %\>% Biến định lượng
+
+### Xây dựng bảng mô tả chéo
+
+-   Biến định tính x định lượng
+
+-   Biến định tính x định tính

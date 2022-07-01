@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 GIAO DIỆN PHẦN MỀM | CẨM NANG: R DÀNH CHO MỌI NGƯỜI   R4All</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 GIAO DIỆN PHẦN MỀM | CẨM NANG: R DÀNH CHO MỌI NGƯỜI   R4All" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 GIAO DIỆN PHẦN MỀM | CẨM NANG: R DÀNH CHO MỌI NGƯỜI   R4All" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Le Duc Huy" />
+
+
+<meta name="date" content="2022-07-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="hướng-dẫn-cài-đặt-phần-mềm.html"/>
+<link rel="next" href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Cẩm nang học R (R4All)</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Lời nói đầu</a></li>
+<li class="chapter" data-level="2" data-path="tại-sao-lại-chọn-r.html"><a href="tại-sao-lại-chọn-r.html"><i class="fa fa-check"></i><b>2</b> Tại sao lại chọn R ?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="tại-sao-lại-chọn-r.html"><a href="tại-sao-lại-chọn-r.html#những-lợi-ích-khi-học-r"><i class="fa fa-check"></i><b>2.1</b> Những lợi ích khi học R</a></li>
+<li class="chapter" data-level="2.2" data-path="tại-sao-lại-chọn-r.html"><a href="tại-sao-lại-chọn-r.html#một-số-rào-càn-khi-học-r"><i class="fa fa-check"></i><b>2.2</b> Một số rào càn khi học R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="hướng-dẫn-cài-đặt-phần-mềm.html"><a href="hướng-dẫn-cài-đặt-phần-mềm.html"><i class="fa fa-check"></i><b>3</b> Hướng dẫn cài đặt phần mềm</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="hướng-dẫn-cài-đặt-phần-mềm.html"><a href="hướng-dẫn-cài-đặt-phần-mềm.html#tải-phần-mềm."><i class="fa fa-check"></i><b>3.1</b> Tải phần mềm.</a></li>
+<li class="chapter" data-level="3.2" data-path="hướng-dẫn-cài-đặt-phần-mềm.html"><a href="hướng-dẫn-cài-đặt-phần-mềm.html#cài-đặt."><i class="fa fa-check"></i><b>3.2</b> Cài đặt.</a></li>
+<li class="chapter" data-level="3.3" data-path="hướng-dẫn-cài-đặt-phần-mềm.html"><a href="hướng-dẫn-cài-đặt-phần-mềm.html#khởi-động-phần-mềm."><i class="fa fa-check"></i><b>3.3</b> Khởi động phần mềm.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="giao-diện-phần-mềm.html"><a href="giao-diện-phần-mềm.html"><i class="fa fa-check"></i><b>4</b> GIAO DIỆN PHẦN MỀM</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="giao-diện-phần-mềm.html"><a href="giao-diện-phần-mềm.html#cửa-sổ-thực-thi-lệnh"><i class="fa fa-check"></i><b>4.1</b> Cửa sổ thực thi lệnh</a></li>
+<li class="chapter" data-level="4.2" data-path="giao-diện-phần-mềm.html"><a href="giao-diện-phần-mềm.html#khu-vực-môi-trường-làm-việc"><i class="fa fa-check"></i><b>4.2</b> Khu vực môi trường làm việc</a></li>
+<li class="chapter" data-level="4.3" data-path="giao-diện-phần-mềm.html"><a href="giao-diện-phần-mềm.html#tóm-tắt-bài-học"><i class="fa fa-check"></i><b>4.3</b> Tóm tắt bài học</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><i class="fa fa-check"></i><b>5</b> Quy trình phân tích dữ liệu cơ bản với R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#xác-định-câu-hỏi-phân-tích-mục-tiêu-phân-tích"><i class="fa fa-check"></i><b>5.1</b> Xác định câu hỏi phân tích (mục tiêu phân tích)</a></li>
+<li class="chapter" data-level="5.2" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#thiết-lập-môi-trường-quản-lý-phân-tích-dữ-liệu"><i class="fa fa-check"></i><b>5.2</b> Thiết lập môi trường quản lý phân tích dữ liệu</a></li>
+<li class="chapter" data-level="5.3" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#chuẩn-bị-và-nhập-dữ-liệu-vào-r"><i class="fa fa-check"></i><b>5.3</b> Chuẩn bị và nhập dữ liệu vào R</a></li>
+<li class="chapter" data-level="5.4" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#kiểm-tra-và-làm-sạch-dữ-liệu"><i class="fa fa-check"></i><b>5.4</b> Kiểm tra và làm sạch dữ liệu</a></li>
+<li class="chapter" data-level="5.5" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#xuất-dữ-liệu-đã-làm-sạch"><i class="fa fa-check"></i><b>5.5</b> Xuất dữ liệu đã làm sạch</a></li>
+<li class="chapter" data-level="5.6" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#phân-tích-mô-tả"><i class="fa fa-check"></i><b>5.6</b> Phân tích mô tả</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#xây-dựng-bảng-mô-tả-đơn-biến"><i class="fa fa-check"></i><b>5.6.1</b> Xây dựng bảng mô tả đơn biến</a></li>
+<li class="chapter" data-level="5.6.2" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#xây-dựng-bảng-mô-tả-chéo"><i class="fa fa-check"></i><b>5.6.2</b> Xây dựng bảng mô tả chéo</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">CẨM NANG: R DÀNH CHO MỌI NGƯỜI <br /> R4All</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="giao-diện-phần-mềm" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> GIAO DIỆN PHẦN MỀM<a href="giao-diện-phần-mềm.html#giao-diện-phần-mềm" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Nếu anh chị đã thấy được giao diện như trên hình (), tuyệt vời! Chúc mừng anh chị đã cài đặt thành công phần mềm R. Và bây giờ, em sẽ giới thiệu giao diện của R. Có thể xem R là phần cốt lõi còn Rstudio là phần vỏ giúp việc sử dụng R trở nên thân thiện và dễ dàng hơn. Do bài giảng của em xoay quanh sử dụng R studio nên em sẽ tập trung giới thiệu R studio: Như trên hình, mọi người có thể thấy R studio bao gồm 4 khu vực: 1. Khu vực ghi các dòng lệnh 2. Khu vực thực hiện câu lệnh và hiển thị kết quả 3. Khu vực môi trường làm việc bao gồm các đối tượng, biến số và list dữ liệu được nhập vào phân tích hay lưu trữ tạm 4. Khu vực cửa sổ chức năng bao gồm các cửa sổ phụ nhỏ theo các tab.</p>
+<p>Hiện tại, các anh chị đã hiểu được các loại cửa sổ và giao diện làm việc với R. Bây giờ chúng ta sẽ cùng tìm hiểu kĩ hơn chức năng của từng cửa sổ: ## Cửa sổ dòng lệnh là nơi hiển thị của file R scripts hoặc file R mark down. Để tạo file R scripts hoặc file R markdown có một số cách sau: * Cách 1. Click vào biểu tượng New =&gt; Chọn file mới * Cách 2. Click vào File &gt; chọn New &gt; …</p>
+<p><strong>Vậy R scripts và R mark down (Rmd) có gì khác biệt nhau?</strong> Cả 2 dạng file này đều có chức năng lưu trữ câu lệnh. Tuy nhiên Rmd cung cấp một số tính năng giúp việc quản lý và thực hiện câu lệnh dễ dàng, rõ ràng hơn. * R md tiết kiệm số lần click chuột chạy dòng lệnh * Hiển thị kết quả theo từng nhóm câu lệnh. * Giúp xuất câu lệnh sang định dạng HTML và có khả năng xuất thành các tệp đầu ra khác (PDF, Word, Powerpoint, v.v.)</p>
+<p><em>Chạy những câu lệnh đầu tiên</em></p>
+<p>Giả sử chúng ta bấm chạy câu lệnh để in hello Vietnam. Đầu tiên chúng ta đưa con trỏ chuột đến dòng chữ “Hello Vietnam!” và bấm <strong>Ctrl + Enter</strong> hoặc bấm biểu tượng Run trên màn hình.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="giao-diện-phần-mềm.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Hello Vietnam!&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Hello Vietnam!&quot;</code></pre>
+<div id="cửa-sổ-thực-thi-lệnh" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Cửa sổ thực thi lệnh<a href="giao-diện-phần-mềm.html#cửa-sổ-thực-thi-lệnh" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Đây là nơi sẽ xuất hiện các dòng lệnh chúng ta chạy từ cửa sổ R scripts/ Rmd. Đối với Rmd, kết quả thường sẽ được biểu thị trong cửa sổ dòng lệnh.</p>
+<p><em><strong>Một lưu ý nhỏ</strong> là biểu đồ sẽ không được hiển thị ở khu vực này, thay vào đó nó sẽ được hiện thị ở cảu sổ chức năng (khi chạy R scripts) hay cửa sổ dòng lệnh khi chạy R md.</em></p>
+</div>
+<div id="khu-vực-môi-trường-làm-việc" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Khu vực môi trường làm việc<a href="giao-diện-phần-mềm.html#khu-vực-môi-trường-làm-việc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Đây là nơi hiển thị các đối tượng, tệp dữ liệu biến số được nhập hoặc tạo ra trong quá trình xử lý. Anh chị có thể click vào các tệp để hiển thị đối tượng được lưu trữ. Nhờ cửa sổ môi trường này, R cho phép người dùng làm việc với nhiều bộ dữ liệu cùng 1 lúc. Lưu ý: Khi bắt đầu làm việc một dự án mới, hãy xóa hết các thư mục và dữ liệu cũ trong môi trường để tránh nhầm lẫn và lỗi khi thực hiện phân tích dữ liệu. ## Khu vực cửa sổ chức năng Khu vực này giúp hiển thị một số nội dung sau:</p>
+<ul>
+<li>Hiển thị biểu đồ nếu thực hiện câu lệnh trên file R scripts</li>
+<li>Biểu thị tài liệu hướng dẫn sử dụng câu lệnh. Ví dụ để tìm hiểu 1 câu lệnh read.csv -&gt; bấm <code>?Read.csv</code>, thông tin về cách sử dụng câu lệnh sẽ được hiện thị tại cửa số này.</li>
+<li>Tiếp cận với các file dữ liệu Rmd, R scripts, R data, csv …;</li>
+<li>Xác định các package được được cài đặt. ### Giới thiệu sơ qua về packages: Packages là tập hợp các câu lệnh được phát triển bởi các lập trình hoặc nghiên cứu trước đó nhằm giúp việc tiến hành phân tích nhanh, gọn và hiệu quả hơn. Để cài đặt packages có nhiều cách</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="giao-diện-phần-mềm.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>) <span class="co"># Cài đặt package cho lần sử dụng đầu tiên</span></span>
+<span id="cb3-2"><a href="giao-diện-phần-mềm.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Để nhập package mỗi khi cần sử dụng</span></span></code></pre></div>
+</div>
+<div id="tóm-tắt-bài-học" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Tóm tắt bài học<a href="giao-diện-phần-mềm.html#tóm-tắt-bài-học" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bài học hôm nay giúp chúng ta hiểu được giao diện của R Studio gồm 4 cửa sổ:</p>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="83%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Cửa sổ</th>
+<th>Chức năng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dòng lệnh</td>
+<td>Viết và lưu trữ câu lệnh Hiển thị file R scripts hoặc R md</td>
+</tr>
+<tr class="even">
+<td>Kết quả</td>
+<td>Hiển thị kết quả và các câu lệnh đã thực hiện</td>
+</tr>
+<tr class="odd">
+<td>Môi trường làm việc</td>
+<td>Hiển thị các biến số, đối tượng và list dữ liệu được tạo ra trong quá trình phân tích hay nhập vào R.</td>
+</tr>
+<tr class="even">
+<td>Chức năng</td>
+<td>Hiển thị trợ giúp Biểu đồ Các file thư mục</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tài liệu tham khảo</strong></p>
+<ul>
+<li><p><a href="#https://r4ds.had.co.nz/">R dành cho khoa học dữ liệu (R for data science)</a></p></li>
+<li><p><a href="#https://epirhandbook.com/vn/basics.html">Cẩm nang dịch tễ học với R</a></p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="hướng-dẫn-cài-đặt-phần-mềm.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-parts.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

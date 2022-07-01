@@ -1,0 +1,52 @@
+# GIAO DIỆN PHẦN MỀM
+
+Nếu anh chị đã thấy được giao diện như trên hình (), tuyệt vời! Chúc mừng anh chị đã cài đặt thành công phần mềm R. Và bây giờ, em sẽ giới thiệu giao diện của R. Có thể xem R là phần cốt lõi còn Rstudio là phần vỏ giúp việc sử dụng R trở nên thân thiện và dễ dàng hơn. Do bài giảng của em xoay quanh sử dụng R studio nên em sẽ tập trung giới thiệu R studio: Như trên hình, mọi người có thể thấy R studio bao gồm 4 khu vực: 1. Khu vực ghi các dòng lệnh 2. Khu vực thực hiện câu lệnh và hiển thị kết quả 3. Khu vực môi trường làm việc bao gồm các đối tượng, biến số và list dữ liệu được nhập vào phân tích hay lưu trữ tạm 4. Khu vực cửa sổ chức năng bao gồm các cửa sổ phụ nhỏ theo các tab.
+
+Hiện tại, các anh chị đã hiểu được các loại cửa sổ và giao diện làm việc với R. Bây giờ chúng ta sẽ cùng tìm hiểu kĩ hơn chức năng của từng cửa sổ: \## Cửa sổ dòng lệnh là nơi hiển thị của file R scripts hoặc file R mark down. Để tạo file R scripts hoặc file R markdown có một số cách sau: \* Cách 1. Click vào biểu tượng New =\> Chọn file mới \* Cách 2. Click vào File \> chọn New \> ...
+
+**Vậy R scripts và R mark down (Rmd) có gì khác biệt nhau?** Cả 2 dạng file này đều có chức năng lưu trữ câu lệnh. Tuy nhiên Rmd cung cấp một số tính năng giúp việc quản lý và thực hiện câu lệnh dễ dàng, rõ ràng hơn. \* R md tiết kiệm số lần click chuột chạy dòng lệnh \* Hiển thị kết quả theo từng nhóm câu lệnh. \* Giúp xuất câu lệnh sang định dạng HTML và có khả năng xuất thành các tệp đầu ra khác (PDF, Word, Powerpoint, v.v.)
+
+*Chạy những câu lệnh đầu tiên*
+
+Giả sử chúng ta bấm chạy câu lệnh để in hello Vietnam. Đầu tiên chúng ta đưa con trỏ chuột đến dòng chữ "Hello Vietnam!" và bấm **Ctrl + Enter** hoặc bấm biểu tượng Run trên màn hình.
+
+```{r first run command}
+print("Hello Vietnam!")
+```
+
+## Cửa sổ thực thi lệnh
+
+Đây là nơi sẽ xuất hiện các dòng lệnh chúng ta chạy từ cửa sổ R scripts/ Rmd. Đối với Rmd, kết quả thường sẽ được biểu thị trong cửa sổ dòng lệnh.
+
+***Một lưu ý nhỏ** là biểu đồ sẽ không được hiển thị ở khu vực này, thay vào đó nó sẽ được hiện thị ở cảu sổ chức năng (khi chạy R scripts) hay cửa sổ dòng lệnh khi chạy R md.*
+
+## Khu vực môi trường làm việc
+
+Đây là nơi hiển thị các đối tượng, tệp dữ liệu biến số được nhập hoặc tạo ra trong quá trình xử lý. Anh chị có thể click vào các tệp để hiển thị đối tượng được lưu trữ. Nhờ cửa sổ môi trường này, R cho phép người dùng làm việc với nhiều bộ dữ liệu cùng 1 lúc. Lưu ý: Khi bắt đầu làm việc một dự án mới, hãy xóa hết các thư mục và dữ liệu cũ trong môi trường để tránh nhầm lẫn và lỗi khi thực hiện phân tích dữ liệu. \## Khu vực cửa sổ chức năng Khu vực này giúp hiển thị một số nội dung sau:
+
+-   Hiển thị biểu đồ nếu thực hiện câu lệnh trên file R scripts
+-   Biểu thị tài liệu hướng dẫn sử dụng câu lệnh. Ví dụ để tìm hiểu 1 câu lệnh read.csv -\> bấm `?Read.csv`, thông tin về cách sử dụng câu lệnh sẽ được hiện thị tại cửa số này.
+-   Tiếp cận với các file dữ liệu Rmd, R scripts, R data, csv ...;
+-   Xác định các package được được cài đặt. \### Giới thiệu sơ qua về packages: Packages là tập hợp các câu lệnh được phát triển bởi các lập trình hoặc nghiên cứu trước đó nhằm giúp việc tiến hành phân tích nhanh, gọn và hiệu quả hơn. Để cài đặt packages có nhiều cách
+
+```{r intall, eval=FALSE}
+install.packages("tidyverse") # Cài đặt package cho lần sử dụng đầu tiên
+library(tidyverse) # Để nhập package mỗi khi cần sử dụng
+```
+
+## Tóm tắt bài học
+
+Bài học hôm nay giúp chúng ta hiểu được giao diện của R Studio gồm 4 cửa sổ:
+
+| Cửa sổ              | Chức năng                                                                                             |
+|---------------------|-------------------------------------------------------------------------------------------------------|
+| Dòng lệnh           | Viết và lưu trữ câu lệnh Hiển thị file R scripts hoặc R md                                            |
+| Kết quả             | Hiển thị kết quả và các câu lệnh đã thực hiện                                                         |
+| Môi trường làm việc | Hiển thị các biến số, đối tượng và list dữ liệu được tạo ra trong quá trình phân tích hay nhập vào R. |
+| Chức năng           | Hiển thị trợ giúp Biểu đồ Các file thư mục                                                            |
+
+**Tài liệu tham khảo**
+
+-   [R dành cho khoa học dữ liệu (R for data science)](#https://r4ds.had.co.nz/)
+
+-   [Cẩm nang dịch tễ học với R](#https://epirhandbook.com/vn/basics.html)

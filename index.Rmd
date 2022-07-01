@@ -1,0 +1,28 @@
+---
+title: "CẨM NANG: R DÀNH CHO MỌI NGƯỜI <br /> R4All"
+author: "Le Duc Huy"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  This is a minimal example of using the bookdown package to write a book.
+  The HTML output format for this example is bookdown::gitbook,
+  set in the _output.yml file.
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+# Lời nói đầu
+
+> Một ngôn ngữ lập trình tốt là ngôn ngữ giúp chúng ta có thể dễ dàng giao tiếp với máy và đặt được mục tiêu làm việc trong khoảng thời gian ngắn nhất.
+
+Cuốn giáo trình hướng dẫn này dành cho tất cả những người đang thực hiện các công việc liên quan đến phân tích số liệu. Người học không cần phải có kiến thức về R trước đó vì các bài hướng dẫn sẽ đi từ những phần đơn giản nhất và kết hợp với các bài tập thực tiễn.
+
+Hi vọng bạn đọc sẽ tìm thấy những điều thú vị và bổ ích từ cuốn cẩm nang hướng dẫn **R4ALl** này.
+
+--Trân trọng!--
+
+Tác giả

@@ -1,0 +1,524 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={CẨM NANG: R DÀNH CHO MỌI NGƯỜI},
+  pdfauthor={Le Duc Huy},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+
+\title{CẨM NANG: R DÀNH CHO MỌI NGƯỜI}
+\author{Le Duc Huy}
+\date{2022-07-01}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{definition}
+\newtheorem{hypothesis}{Hypothesis}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{lux1eddi-nuxf3i-ux111ux1ea7u}{%
+\chapter{Lời nói đầu}\label{lux1eddi-nuxf3i-ux111ux1ea7u}}
+
+\begin{quote}
+Một ngôn ngữ lập trình tốt là ngôn ngữ giúp chúng ta có thể dễ dàng giao tiếp với máy và đặt được mục tiêu làm việc trong khoảng thời gian ngắn nhất.
+\end{quote}
+
+Cuốn giáo trình hướng dẫn này dành cho tất cả những người đang thực hiện các công việc liên quan đến phân tích số liệu. Người học không cần phải có kiến thức về R trước đó vì các bài hướng dẫn sẽ đi từ những phần đơn giản nhất và kết hợp với các bài tập thực tiễn.
+
+Hi vọng bạn đọc sẽ tìm thấy những điều thú vị và bổ ích từ cuốn cẩm nang hướng dẫn \textbf{R4ALl} này.
+
+--Trân trọng!--
+
+Tác giả
+
+\hypertarget{tux1ea1i-sao-lux1ea1i-chux1ecdn-r}{%
+\chapter{Tại sao lại chọn R ?}\label{tux1ea1i-sao-lux1ea1i-chux1ecdn-r}}
+
+\hypertarget{nhux1eefng-lux1ee3i-uxedch-khi-hux1ecdc-r}{%
+\section{Những lợi ích khi học R}\label{nhux1eefng-lux1ee3i-uxedch-khi-hux1ecdc-r}}
+
+\textbf{Cái lợi đầu tiên nhất} -- Đó là nó hoàn toàn miễn phí. Nhiều người nói \emph{``của cho là của ôi''} nhưng câu này hoàn toàn không đúng với R nhé. Của cho miễn phí hoàn toàn nhưng chất lượng thì miễn bàn. Vấn đề ở đây là bạn có đủ sức để khai thác hết tiềm năng của phần mềm này hay không.
+
+\textbf{Cộng đồng học R rất mạnh và hùng hậu} trên thế giới -- trong phân tích thống kê, có rất nhiều cộng đồng R ở các nước khác nhau. Nếu bạn có chút tiếng anh, hoặc không cần cũng được, cứ để anh google dịch lo bạn chỉ cần copy cái lỗi và tìm kiếm bài đăng. Bạn sẽ thấy hàng loạt bài đăng giải đáp thắc mắc trên mạng.
+
+\textbf{R đã rất phổ biến trong nghiên cứu khoa học}.Nếu bạn đọc giả các tập san uy tín, bạn sẽ phát hiện rất nhiều bài báo trong số đó dùng R. Nói đúng ra, học R sẽ giúp các bạn giao tiếp ngôn ngữ thống kê và hội nhập nhanh hơn với các phương pháp phân tích nghiên cứu khoa học trên toàn thế giới.
+
+Thêm một điểm nhỏ nữa, vì R cũng là một ngôn ngữ lập trình, nếu bạn thuần thục nó trong tương lai bạn sẽ tiếp thu các ngôn ngữ lập trình khác nhanh hơn như Python hay sử dụng syntax trong SPSS, STATA.
+
+\textbf{R cực kì mạnh trong thống kê} so với các phần mềm khác như STATA, SPSS. Nhìn vào bảng so sánh này, bạn sẽ thấy R tiềm năng như thế nào?
+
+\hypertarget{mux1ed9t-sux1ed1-ruxe0o-cuxe0n-khi-hux1ecdc-r}{%
+\section{Một số rào càn khi học R}\label{mux1ed9t-sux1ed1-ruxe0o-cuxe0n-khi-hux1ecdc-r}}
+
+Vậy có bạn sẽ hỏi tại sao, một phần mềm thống kê hay, xịn, miễn phí như R lại không phổ biến tại VN. Mình nghĩ có một số lý do sau: - Nhiều người quan niệm, ngôn ngữ lập trình quá khó, khó đến mức không dám thử sức với nó. Nhưng tin mình đi nếu bạn đã học xong môn lập trình tin học cấp 2, R thật sự còn dễ hơn Pascal. Chỉ quan trọng là bạn có mở lòng ra với nó hay không. - Nhiều người đã quen với SPSS, STATA nên ngại học 1 ngôn ngữ mới. Tùy vào quan điểm mỗi người nhưng mình thấy R khắc phục được những hạn chế của 2 phần mềm trên: mở nhiều data cùng 1 lúc, xây dựng bản đồ tương tác, bản đồ phức tạp.
+
+Nói tóm lại, khó hay không là do chính các bạn! Nếu các bạn tin mình, bạn sẽ cảm thấy mọi thứ chỉ khó khi mới bắt đầu dần dần phần mềm R sẽ đem lại nhiều điều thú vị. Hãy thử mở lòng và học hỏi thêm 1 phần mềm mới. Nó thật sự giúp các bạn nhiều lợi ích hơn những gì bạn nghĩ \^{}\^{} Nói đã khá nhiều, bây giờ nếu các bạn đã sẵn sàng hãy cùng bắt đầu hành trình chinh phục R.
+
+\hypertarget{hux1b0ux1edbng-dux1eabn-cuxe0i-ux111ux1eb7t-phux1ea7n-mux1ec1m}{%
+\chapter{Hướng dẫn cài đặt phần mềm}\label{hux1b0ux1edbng-dux1eabn-cuxe0i-ux111ux1eb7t-phux1ea7n-mux1ec1m}}
+
+Bài hướng dẫn này sẽ giúp anh chị tải và cài đặt phần mềm R. Về cơ bản, chúng ta cần cài đặt 2 phần mềm bao gồm \textbf{R base} và \textbf{R studio}.
+
+\begin{itemize}
+\item
+  R base là phần mềm gốc xuất hiện đầu tiên, có thể thực hiện các câu lệnh phân tích. Có thể xem \textbf{R base} là một cái lõi.
+\item
+  Tuy nhiên, để tăng hiệu suất làm việc với R, các nhà nghiên cứu đã thiết ra một phần mềm bổ sung với giao diện trực quan, hỗ trợ cú pháp dòng lệnh, đề xuất tên biến,\ldots{} Đó là \textbf{R Studio}.
+\end{itemize}
+
+Vậy để tải và cài đặt phần mềm này, anh chị vui lòng thực hiện các bước cơ bản sau:
+
+\hypertarget{tux1ea3i-phux1ea7n-mux1ec1m.}{%
+\section{Tải phần mềm.}\label{tux1ea3i-phux1ea7n-mux1ec1m.}}
+
+Để tải R base và R Studio anh chị vào địa chỉ trang web sau:
+
+\begin{itemize}
+\item
+  R base: \url{https://www.r-project.org/}
+\item
+  R Studio: \url{https://www.rstudio.com/products/rstudio/download/\#download}
+\end{itemize}
+
+\hypertarget{cuxe0i-ux111ux1eb7t.}{%
+\section{Cài đặt.}\label{cuxe0i-ux111ux1eb7t.}}
+
+Anh chị lưu ý là \textbf{cần cài đặt R base trước và R studio sau.} Khi khởi động cài đặt, anh chị có thể chọn theo mặc định của phần mềm. Sau này nếu anh chị thấy đã thuần thục về R có thể cài đặt lại và thay đổi các tùy chọn cài đặt nâng cao của R base hay R Studio.
+
+\hypertarget{khux1edfi-ux111ux1ed9ng-phux1ea7n-mux1ec1m.}{%
+\section{Khởi động phần mềm.}\label{khux1edfi-ux111ux1ed9ng-phux1ea7n-mux1ec1m.}}
+
+Lúc này chúng ta sẽ kiểm tra giao diện cụ thể.
+
+\textbf{!Một số lưu ý:}
+
+Khi tải phần mềm cần chọn đúng phiên bản để tương thích với hệ điều hành window bạn đang sử dụng (32x hay 64x). Để kiểm tra phiên bản window, anh chị bấm biểu tượng my computer, sau đó click chuột phải chọn properties để kiểm tra.
+
+\hypertarget{giao-diux1ec7n-phux1ea7n-mux1ec1m}{%
+\chapter{GIAO DIỆN PHẦN MỀM}\label{giao-diux1ec7n-phux1ea7n-mux1ec1m}}
+
+Nếu anh chị đã thấy được giao diện như trên hình (), tuyệt vời! Chúc mừng anh chị đã cài đặt thành công phần mềm R. Và bây giờ, em sẽ giới thiệu giao diện của R. Có thể xem R là phần cốt lõi còn Rstudio là phần vỏ giúp việc sử dụng R trở nên thân thiện và dễ dàng hơn. Do bài giảng của em xoay quanh sử dụng R studio nên em sẽ tập trung giới thiệu R studio: Như trên hình, mọi người có thể thấy R studio bao gồm 4 khu vực: 1. Khu vực ghi các dòng lệnh 2. Khu vực thực hiện câu lệnh và hiển thị kết quả 3. Khu vực môi trường làm việc bao gồm các đối tượng, biến số và list dữ liệu được nhập vào phân tích hay lưu trữ tạm 4. Khu vực cửa sổ chức năng bao gồm các cửa sổ phụ nhỏ theo các tab.
+
+Hiện tại, các anh chị đã hiểu được các loại cửa sổ và giao diện làm việc với R. Bây giờ chúng ta sẽ cùng tìm hiểu kĩ hơn chức năng của từng cửa sổ: \#\# Cửa sổ dòng lệnh là nơi hiển thị của file R scripts hoặc file R mark down. Để tạo file R scripts hoặc file R markdown có một số cách sau: * Cách 1. Click vào biểu tượng New =\textgreater{} Chọn file mới * Cách 2. Click vào File \textgreater{} chọn New \textgreater{} \ldots{}
+
+\textbf{Vậy R scripts và R mark down (Rmd) có gì khác biệt nhau?} Cả 2 dạng file này đều có chức năng lưu trữ câu lệnh. Tuy nhiên Rmd cung cấp một số tính năng giúp việc quản lý và thực hiện câu lệnh dễ dàng, rõ ràng hơn. * R md tiết kiệm số lần click chuột chạy dòng lệnh * Hiển thị kết quả theo từng nhóm câu lệnh. * Giúp xuất câu lệnh sang định dạng HTML và có khả năng xuất thành các tệp đầu ra khác (PDF, Word, Powerpoint, v.v.)
+
+\emph{Chạy những câu lệnh đầu tiên}
+
+Giả sử chúng ta bấm chạy câu lệnh để in hello Vietnam. Đầu tiên chúng ta đưa con trỏ chuột đến dòng chữ ``Hello Vietnam!'' và bấm \textbf{Ctrl + Enter} hoặc bấm biểu tượng Run trên màn hình.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\StringTok{"Hello Vietnam!"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Hello Vietnam!"
+\end{verbatim}
+
+\hypertarget{cux1eeda-sux1ed5-thux1ef1c-thi-lux1ec7nh}{%
+\section{Cửa sổ thực thi lệnh}\label{cux1eeda-sux1ed5-thux1ef1c-thi-lux1ec7nh}}
+
+Đây là nơi sẽ xuất hiện các dòng lệnh chúng ta chạy từ cửa sổ R scripts/ Rmd. Đối với Rmd, kết quả thường sẽ được biểu thị trong cửa sổ dòng lệnh.
+
+\emph{\textbf{Một lưu ý nhỏ} là biểu đồ sẽ không được hiển thị ở khu vực này, thay vào đó nó sẽ được hiện thị ở cảu sổ chức năng (khi chạy R scripts) hay cửa sổ dòng lệnh khi chạy R md.}
+
+\hypertarget{khu-vux1ef1c-muxf4i-trux1b0ux1eddng-luxe0m-viux1ec7c}{%
+\section{Khu vực môi trường làm việc}\label{khu-vux1ef1c-muxf4i-trux1b0ux1eddng-luxe0m-viux1ec7c}}
+
+Đây là nơi hiển thị các đối tượng, tệp dữ liệu biến số được nhập hoặc tạo ra trong quá trình xử lý. Anh chị có thể click vào các tệp để hiển thị đối tượng được lưu trữ. Nhờ cửa sổ môi trường này, R cho phép người dùng làm việc với nhiều bộ dữ liệu cùng 1 lúc. Lưu ý: Khi bắt đầu làm việc một dự án mới, hãy xóa hết các thư mục và dữ liệu cũ trong môi trường để tránh nhầm lẫn và lỗi khi thực hiện phân tích dữ liệu. \#\# Khu vực cửa sổ chức năng Khu vực này giúp hiển thị một số nội dung sau:
+
+\begin{itemize}
+\tightlist
+\item
+  Hiển thị biểu đồ nếu thực hiện câu lệnh trên file R scripts
+\item
+  Biểu thị tài liệu hướng dẫn sử dụng câu lệnh. Ví dụ để tìm hiểu 1 câu lệnh read.csv -\textgreater{} bấm \texttt{?Read.csv}, thông tin về cách sử dụng câu lệnh sẽ được hiện thị tại cửa số này.
+\item
+  Tiếp cận với các file dữ liệu Rmd, R scripts, R data, csv \ldots;
+\item
+  Xác định các package được được cài đặt. \#\#\# Giới thiệu sơ qua về packages: Packages là tập hợp các câu lệnh được phát triển bởi các lập trình hoặc nghiên cứu trước đó nhằm giúp việc tiến hành phân tích nhanh, gọn và hiệu quả hơn. Để cài đặt packages có nhiều cách
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{) }\CommentTok{\# Cài đặt package cho lần sử dụng đầu tiên}
+\FunctionTok{library}\NormalTok{(tidyverse) }\CommentTok{\# Để nhập package mỗi khi cần sử dụng}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{tuxf3m-tux1eaft-buxe0i-hux1ecdc}{%
+\section{Tóm tắt bài học}\label{tuxf3m-tux1eaft-buxe0i-hux1ecdc}}
+
+Bài học hôm nay giúp chúng ta hiểu được giao diện của R Studio gồm 4 cửa sổ:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.1694}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.8306}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+Cửa sổ
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Chức năng
+\end{minipage} \\
+\midrule
+\endhead
+Dòng lệnh & Viết và lưu trữ câu lệnh Hiển thị file R scripts hoặc R md \\
+Kết quả & Hiển thị kết quả và các câu lệnh đã thực hiện \\
+Môi trường làm việc & Hiển thị các biến số, đối tượng và list dữ liệu được tạo ra trong quá trình phân tích hay nhập vào R. \\
+Chức năng & Hiển thị trợ giúp Biểu đồ Các file thư mục \\
+\bottomrule
+\end{longtable}
+
+\textbf{Tài liệu tham khảo}
+
+\begin{itemize}
+\item
+  \protect\hyperlink{https:ux2fux2fr4ds.had.co.nzux2f}{R dành cho khoa học dữ liệu (R for data science)}
+\item
+  \protect\hyperlink{https:ux2fux2fepirhandbook.comux2fvnux2fbasics.html}{Cẩm nang dịch tễ học với R}
+\end{itemize}
+
+\hypertarget{quy-truxecnh-phuxe2n-tuxedch-dux1eef-liux1ec7u-cux1a1-bux1ea3n-vux1edbi-r}{%
+\chapter{Quy trình phân tích dữ liệu cơ bản với R}\label{quy-truxecnh-phuxe2n-tuxedch-dux1eef-liux1ec7u-cux1a1-bux1ea3n-vux1edbi-r}}
+
+(Source: R for Data science)
+
+Chào mừng mọi người đã đến với bài giảng tiếp theo trong chuỗi bài giảng chia sẻ \textbf{R4All}. Bài giảng này sẽ hướng dẫn cho mọi người một cái nhìn khái quát về quy trình phân tích dữ liệu nói chung và cách lồng ghép R vào quy trình này để đạt được mục tiêu phân tích.
+
+Qua quá trình làm việc với nhiều bạn sinh viên cũng như các anh chị khi mới bắt đầu vào phân tích, mọi người thường không nắm rõ một quy trình phân tích cụ thể. Lý do chủ quan là do các anh chị và các bạn này mới bắt đầu vào phân tích, lý do khách quan là không có nhiều tài liệu đề cập đến vấn đề này dù rằng đây là một vấn đề rất cơ bản và quan trọng cho bất cứ cá nhân nào thực hiện phân tích dữ liệu.
+
+Do vậy sau khi đọc xong bài giảng này, anh chị và các bạn sẽ hiểu được một quy trình cơ bản trong phân tích dữ liệu từ đó đặt ra mục tiêu để có những chiến thuật phân tích phù hợp. Theo kinh nghiệm bản thân và từ các tài liệu tham khảo, phân tích dữ liệu thường trải qua các bước sau: * Bước 1. Xác định câu hỏi phân tích/ mục tiêu phân tích. * Bước 2. Thiết lập môi trường quản lý phân tích dữ liệu * Bước 3. Chuẩn bị và nhập dữ liệu vào R * Bước 4. Kiểm tra và làm sạch dữ liệu * Bước 5. Xuất dữ liệu đã làm sạch * Bước 6: Phân tích mô tả
+
+\hypertarget{xuxe1c-ux111ux1ecbnh-cuxe2u-hux1ecfi-phuxe2n-tuxedch-mux1ee5c-tiuxeau-phuxe2n-tuxedch}{%
+\section{Xác định câu hỏi phân tích (mục tiêu phân tích)}\label{xuxe1c-ux111ux1ecbnh-cuxe2u-hux1ecfi-phuxe2n-tuxedch-mux1ee5c-tiuxeau-phuxe2n-tuxedch}}
+
+Việc xác định mục tiêu phân tích cực kì quan trọng vì nó giúp anh chị tập trung hơn và tránh lạc hướng trong quá trình xử lý dữ liệu. Bên cạnh đó việc xác định mục tiêu phân tích cũng giúp anh chị xác định các phương pháp thống kê cần thiết cho phân tích dữ liệu và các nguồn số liệu cần thiết. Qua đó giúp chúng ta tiết kiệm thời gian và nguồn lực phân tích. Trong quá trình xác định mục tiêu phân tích, chúng ta cũng có thể tham khảo ý kiến góp ý từ những người xung quang, các giáo viên hướng dẫn, anh chị và bạn bè. Mục tiêu phân tích có thể được xây dựng dựa vào mục tiêu nghiên cứu, khung lý thuyết trong nghiên cứu. Trong mục tiêu phân tích chúng ta cần xác định được cơ bản các yếu tố sau: Cấp độ phân tích: mô tả, xây dựng mô hình, tìm kiếm mối quan hệ (Tìm hiểu các cấp độ phân tích trong nghiên cứu\ldots)
+
+\begin{itemize}
+\item
+  Xác định các biến số
+\item
+  Biến số chính hay kết quả (Biến số phụ thuộc) và các biến số liên quan. Ví dụ: Phân tích số lượng ca mắc COVID-19 và các yếu tố liên quan ở các quốc gia châu Á.
+\item
+  Từ mục tiêu trên, chúng ta có thể xác định được số lượng ca mắc COVID-19 là biến số chính cần quan tâm. Các biến số liên quan gồm: danh sách tên các quốc gia thuộc châu Á, Các yếu tố ảnh hưởng đến số lượng ca mắc: chính sách phòng dịch, tỷ lệ bao phủ vắc xin, tỷ lệ xét nghiệm COVID-19, đặc điểm sức khỏe dân số của quốc gia đó, \ldots{}
+\item
+  Cấp độ phân tích ở đây là mô tả và xây dựng mô hình để phát hiện các yếu tố liên quan.
+\end{itemize}
+
+\hypertarget{thiux1ebft-lux1eadp-muxf4i-trux1b0ux1eddng-quux1ea3n-luxfd-phuxe2n-tuxedch-dux1eef-liux1ec7u}{%
+\section{Thiết lập môi trường quản lý phân tích dữ liệu}\label{thiux1ebft-lux1eadp-muxf4i-trux1b0ux1eddng-quux1ea3n-luxfd-phuxe2n-tuxedch-dux1eef-liux1ec7u}}
+
+Nhiều người khi mới bắt đầu sử dụng có xu hướng bắt tay vào phân tích ngay lập tức và không chuẩn bị môi trường quản lý dữ liệu. Điều này dẫn đến tác hại lâu dài trong việc quản lý phân tích dữ liệu và làm tốn rất nhiều thời gian để truy tìm file sau này vì bị lạc mất file, xóa nhầm, quên mất phiên bản phân tích mới nhất, gặp trở ngại khi chia sẻ project với những người xung quanh\ldots{} Do vậy hay dành chút thời gian thiết lập môi trường và tạo thói quen trước khi bắt đầu các bước phân tích dữ liệu đầu tiên. Đầu tiên chúng ta cần tạo một thư mục và đặt tên thư mục theo tên dự án ngắn gọn. Trong thư mục này, chúng ta sẽ tạo ra các thư mục con gồm: dataset, scripts (code), results, plots. Mọi người có thể tham khảo hình bên dưới để biết rõ hơn về cách xây dựng hệ thống thư mục trong project.
+
+\begin{itemize}
+\tightlist
+\item
+  Tạo R projects -- Tiếp cận với R một cách hệ thống
+\end{itemize}
+
+Nếu anh chị nào có kinh nghiệm làm việc với các phần mềm thống kế khác như STATA hay SAS, anh chị có gặp trường hợp tải câu lệnh về nhưng khi chạy lệnh không thể mở file lên được và luôn báo lỗi đường dẫn này không tồn tại. Đây chính là lý do chúng ta cần nắm một khái niệm cơ bản đó là đường dẫn tuyệt đối và đường dẫn tương đối trong khi làm việc với các phần mềm lập trình, và R không là ngoại lệ. Đường dẫn ở đây là con đường chúng ra cần vạch ra để giúp R có thể lấy được các file dữ liệu hoặc file câu lệnh. Nếu chúng ta sử dụng đường dẫn tuyệt đối -\textgreater{} chúng ta sẽ gặp nhiều vấn đề khi mở file câu lệnh, dữ liệu trên máy tính khác do đường dân này đã bị thay đổi ở máy khác và đây được gọi là hiện tượng đứt gãy liên kết. Từ đó người ta đã phát minh ra loại đường dẫn linh hoạt hơn gọi là đường dẫn tương đối, chúng ta chỉ quan tâm phần ngọn, còn phần gốc có thể tùy nhỉ.
+
+\begin{itemize}
+\tightlist
+\item
+  Để hiểu hơn cùng xem ví dụ dưới dây:
+\end{itemize}
+
+Đường dẫn tuyệt đối: ``G:\My Drive\Summer Projects\education project'' Đường dẫn tương đối: ``\ldots{}\Summer Projects\education project'' Về phần này, em sẽ trình bày rõ hơn trong phần tiếp theo nhập và xuất dữ liệu.
+
+\hypertarget{chuux1ea9n-bux1ecb-vuxe0-nhux1eadp-dux1eef-liux1ec7u-vuxe0o-r}{%
+\section{Chuẩn bị và nhập dữ liệu vào R}\label{chuux1ea9n-bux1ecb-vuxe0-nhux1eadp-dux1eef-liux1ec7u-vuxe0o-r}}
+
+Một điểm rất nổi bật từ R đó là có thể đọc được nhiều loại file khác nhau. Hôm nay mình sẽ giới thiệu anh chị một số cách để nhập dữ liệu vào R cũng như một số bước để nhập dữ liệu
+
+\begin{itemize}
+\item
+  Bước 1. Xác định vị trí file dữ liệu Để nhập dữ liệu vào R có hệ thống, anh chị cần tải hết tất cả các file dữ liệu có liên quan vào thư mục dataset chúng ta đã tạo trước đó.
+\item
+  Bước 2. Xác định được định dạng dữ liệu Sau đó chúng ta cần xác định các định dạng đuôi của file chúng ta nhập vào. Một số định dạng file dữ liệu thường gặp gồm: csv (định dạng file các cột được chia cách bằng dấu phẩy), excel, RData (lưu trữ dữ liệu và các tệp đối tượng trên R), Rds (lưu trữ dữ liệu trên R), sav, sas, STATA.
+\end{itemize}
+
+\emph{Lưu ý}: trong quá trình phân tích dữ liệu khi xuất file thường chọn file csv vì nó giúp hỗ trợ nhận diện từ nhiều phần mềm. Tuy nhiên việc lưu trữ file dữ liệu bằng RData hoặc RDs có một điểm rất thuận lợi đó là giữ lại được định dạng của các tệp dữ liệu, bảng biểu đã được tạo ra trong quá trình phân tích.
+
+\begin{itemize}
+\item
+  Bước 3. Dùng hàm package trong R để nhập dữ liệu Một số package dùng để nhập dữ liệu vào R bao gồm
+\item
+  Bước 4: Mở file dữ liệu và kiểm tra sơ bộ dữ liệu nhập vào có hoàn chỉnh.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Nếu file dữ liệu nhập vào hoàn chỉnh, chúng ta sẽ đi đến bước tiếp theo
+  \item
+    Nếu không chung ta sẽ cần kiểm tra lại file dữ liệu và sử dụng hàm nhập khác ở bước 3. VD: Nhập dữ liệu từ file excel\\
+  \end{itemize}
+\item
+  Bước 5. Ghép nối dữ liệu nếu cần Về cơ bản có 3 kiểu ghép nối dữ liệu Ghép dữ liệu dựa vào bổ sung thêm hàng Ghép dữ liệu dựa vào bổ sung thêm cột Ghép dữ liệu dựa vào mã ID Ngoài ra, còn có một số cách nâng cao để nhập dữ liệu từ trang web trực tiếp và không cần phải tải dữ liệu.
+\end{itemize}
+
+\hypertarget{kiux1ec3m-tra-vuxe0-luxe0m-sux1ea1ch-dux1eef-liux1ec7u}{%
+\section{Kiểm tra và làm sạch dữ liệu}\label{kiux1ec3m-tra-vuxe0-luxe0m-sux1ea1ch-dux1eef-liux1ec7u}}
+
+Sau khi nhập dữ liệu, một số câu hỏi chúng ta cần đặt ra đó là: - Dữ liệu có nhiều missing data không - Các biến số ghi nhận vào có định dạng đúng không? - Có nhiều giá trị outliers trong các nhóm biến không? - Có biến số nào chúng ta cần nhóm lại không? - Biến số nào cần tính toán lại? - Liệu chúng ta có cần dùng hết bộ dữ liệu hay chỉ cần giữ lại các biến số chúng ta thực sự quan tâm? Sau đây, em sẽ giới thiệu mọi người các bước kiểm tra và làm sạch dữ liệu cũng như các cú pháp câu lệnh giúp trả lời hết các vấn đề nếu trên
+
+\begin{itemize}
+\item
+  Bước 1. Nhìn sơ qua bộ dữ liệu để kiểm tra các định dạng biến, các giá trị outliers,\ldots{} - str df -\textgreater{} xác định danh sách biến định lượng, định tính. =\textgreater{} xác định các biến có định dạng sai -\textgreater{} Lựa chọn các biến cần thiết và không cần thiết =\textgreater{} lọc lại data -Xác định các biến số mới cần thiết để tính toán dựa trên các biến số cũ =\textgreater{} mutate với điều kiện Mutate(varA' = VarA/100)
+\item
+  Bước 2. Bảng tần số để đánh giá phân bố dữ liệu của biến số định tính -\textgreater{} xác định các nhóm biến số rời rạc =\textgreater{} Tiến hành gộp nhóm Mutate( varB = case\_when( ) Bước 3. Dùng đồ thị để xác định phân bố dữ liệu của biến số định lượng =\textgreater{} Tiến hàng lọc các giá trị
+\end{itemize}
+
+Bước 4. Kiểm tra tính logic giữa các biến. Chúng ta sẽ lựa chọn các câu hỏi có liên quan và dựa vào bảng tần số để kiểm tra.
+
+\hypertarget{xuux1ea5t-dux1eef-liux1ec7u-ux111uxe3-luxe0m-sux1ea1ch}{%
+\section{Xuất dữ liệu đã làm sạch}\label{xuux1ea5t-dux1eef-liux1ec7u-ux111uxe3-luxe0m-sux1ea1ch}}
+
+Sau khi đã làm sạch dữ liệu -- chúng ta cần lưu trữ lại để tiết kiệm thời gian Ưu nhược điểm của một số định dạng file phổ biến
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2361}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4306}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+Định dạng file
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Ưu điểm
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Nhược điểm
+\end{minipage} \\
+\midrule
+\endhead
+csv & File dữ liệu có thể mở ở nhiều phần mềm khác nhau không cần chuyển đối & Không có lưu trữ được định dạng \\
+Excel & Là một định dạng khá phổ biến & Có nhiều format cần xác định rõ trước khi nhập dữ liệu Tốc độ nhập dữ liệu chậm \\
+Rds/ RData & Đây là dạng dữ liệu R giúp lưu trữ định dạng của các biến và dữ liệu Giúp nhập dữ liệu nhanh và hiệu quả & Chỉ đọc được dữ liệu ở phần mềm R \\
+\bottomrule
+\end{longtable}
+
+Câu lệnh để xuất dữ liệu chúng sẽ áp dụng câu lệnh dưới đây. \texttt{\{r\}\ export({[}tên\ data\ xuất{]}\ ,here({[}"tên\ thư\ mục"{]},\ {[}"tên\ file"{]}))} Với dữ liệu đã được làm sạch, chúng ta sẽ đến với bước khai phá dữ liệu gồm \textbf{3 bước là 6, 7, 8}. Ba bước này tạo ra một vòng lặp giúp tạo ra một kết quả cuối cùng và phiên giải kết quả.
+
+\hypertarget{phuxe2n-tuxedch-muxf4-tux1ea3}{%
+\section{Phân tích mô tả}\label{phuxe2n-tuxedch-muxf4-tux1ea3}}
+
+Chúng ta có thể xây dựng bảng đơn và bảng chéo dựa vào nhóm câu lệnh group\_by and summarize Tạo bảng đơn: + Bảng đơn cho định tính + Bảng đơn cho biến định lượng Tạo bảng chéo: + Bảng chéo cho biến định tính x định tính + Bảng chéo cho biến định tính x định lượng
+
+\hypertarget{xuxe2y-dux1ef1ng-bux1ea3ng-muxf4-tux1ea3-ux111ux1a1n-biux1ebfn}{%
+\subsection{Xây dựng bảng mô tả đơn biến}\label{xuxe2y-dux1ef1ng-bux1ea3ng-muxf4-tux1ea3-ux111ux1a1n-biux1ebfn}}
+
+\begin{itemize}
+\tightlist
+\item
+  Biến định tính Data \%\textgreater\% Biến định lượng
+\end{itemize}
+
+\hypertarget{xuxe2y-dux1ef1ng-bux1ea3ng-muxf4-tux1ea3-chuxe9o}{%
+\subsection{Xây dựng bảng mô tả chéo}\label{xuxe2y-dux1ef1ng-bux1ea3ng-muxf4-tux1ea3-chuxe9o}}
+
+\begin{itemize}
+\item
+  Biến định tính x định lượng
+\item
+  Biến định tính x định tính
+\end{itemize}
+
+\hypertarget{blocks}{%
+\chapter{Blocks}\label{blocks}}
+
+\hypertarget{equations}{%
+\section{Equations}\label{equations}}
+
+Here is an equation.
+
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \label{eq:binom}
+\end{equation}
+
+You may refer to using \texttt{\textbackslash{}@ref(eq:binom)}, like see Equation \eqref{eq:binom}.
+
+\hypertarget{theorems-and-proofs}{%
+\section{Theorems and proofs}\label{theorems-and-proofs}}
+
+Labeled theorems can be referenced in text using \texttt{\textbackslash{}@ref(thm:tri)}, for example, check out this smart theorem \ref{thm:tri}.
+
+\begin{theorem}
+\protect\hypertarget{thm:tri}{}\label{thm:tri}For a right triangle, if \(c\) denotes the \emph{length} of the hypotenuse
+and \(a\) and \(b\) denote the lengths of the \textbf{other} two sides, we have
+\[a^2 + b^2 = c^2\]
+\end{theorem}
+
+Read more here \url{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html}.
+
+\hypertarget{callout-blocks}{%
+\section{Callout blocks}\label{callout-blocks}}
+
+The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: \url{https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html}
+
+\hypertarget{sharing-your-book}{%
+\chapter{Sharing your book}\label{sharing-your-book}}
+
+\hypertarget{publishing}{%
+\section{Publishing}\label{publishing}}
+
+HTML books can be published online, see: \url{https://bookdown.org/yihui/bookdown/publishing.html}
+
+\hypertarget{pages}{%
+\section{404 pages}\label{pages}}
+
+By default, users will be directed to a 404 page if they try to access a webpage that cannot be found. If you'd like to customize your 404 page instead of using the default, you may add either a \texttt{\_404.Rmd} or \texttt{\_404.md} file to your project root and use code and/or Markdown syntax.
+
+\hypertarget{metadata-for-sharing}{%
+\section{Metadata for sharing}\label{metadata-for-sharing}}
+
+Bookdown HTML books will provide HTML metadata for social sharing on platforms like Twitter, Facebook, and LinkedIn, using information you provide in the \texttt{index.Rmd} YAML. To setup, set the \texttt{url} for your book and the path to your \texttt{cover-image} file. Your book's \texttt{title} and \texttt{description} are also used.
+
+This \texttt{gitbook} uses the same social sharing data across all chapters in your book- all links shared will look the same.
+
+Specify your book's source repository on GitHub using the \texttt{edit} key under the configuration options in the \texttt{\_output.yml} file, which allows users to suggest an edit by linking to a chapter's source file.
+
+Read more about the features of this output format here:
+
+\url{https://pkgs.rstudio.com/bookdown/reference/gitbook.html}
+
+Or use:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{?bookdown}\SpecialCharTok{::}\NormalTok{gitbook}
+\end{Highlighting}
+\end{Shaded}
+
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

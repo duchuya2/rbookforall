@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Quy trình phân tích dữ liệu cơ bản với R | CẨM NANG: R DÀNH CHO MỌI NGƯỜI   R4All</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Quy trình phân tích dữ liệu cơ bản với R | CẨM NANG: R DÀNH CHO MỌI NGƯỜI   R4All" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Quy trình phân tích dữ liệu cơ bản với R | CẨM NANG: R DÀNH CHO MỌI NGƯỜI   R4All" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Le Duc Huy" />
+
+
+<meta name="date" content="2022-07-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="giao-diện-phần-mềm.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Cẩm nang học R (R4All)</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Lời nói đầu</a></li>
+<li class="chapter" data-level="2" data-path="tại-sao-lại-chọn-r.html"><a href="tại-sao-lại-chọn-r.html"><i class="fa fa-check"></i><b>2</b> Tại sao lại chọn R ?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="tại-sao-lại-chọn-r.html"><a href="tại-sao-lại-chọn-r.html#những-lợi-ích-khi-học-r"><i class="fa fa-check"></i><b>2.1</b> Những lợi ích khi học R</a></li>
+<li class="chapter" data-level="2.2" data-path="tại-sao-lại-chọn-r.html"><a href="tại-sao-lại-chọn-r.html#một-số-rào-càn-khi-học-r"><i class="fa fa-check"></i><b>2.2</b> Một số rào càn khi học R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="hướng-dẫn-cài-đặt-phần-mềm.html"><a href="hướng-dẫn-cài-đặt-phần-mềm.html"><i class="fa fa-check"></i><b>3</b> Hướng dẫn cài đặt phần mềm</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="hướng-dẫn-cài-đặt-phần-mềm.html"><a href="hướng-dẫn-cài-đặt-phần-mềm.html#tải-phần-mềm."><i class="fa fa-check"></i><b>3.1</b> Tải phần mềm.</a></li>
+<li class="chapter" data-level="3.2" data-path="hướng-dẫn-cài-đặt-phần-mềm.html"><a href="hướng-dẫn-cài-đặt-phần-mềm.html#cài-đặt."><i class="fa fa-check"></i><b>3.2</b> Cài đặt.</a></li>
+<li class="chapter" data-level="3.3" data-path="hướng-dẫn-cài-đặt-phần-mềm.html"><a href="hướng-dẫn-cài-đặt-phần-mềm.html#khởi-động-phần-mềm."><i class="fa fa-check"></i><b>3.3</b> Khởi động phần mềm.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="giao-diện-phần-mềm.html"><a href="giao-diện-phần-mềm.html"><i class="fa fa-check"></i><b>4</b> GIAO DIỆN PHẦN MỀM</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="giao-diện-phần-mềm.html"><a href="giao-diện-phần-mềm.html#cửa-sổ-thực-thi-lệnh"><i class="fa fa-check"></i><b>4.1</b> Cửa sổ thực thi lệnh</a></li>
+<li class="chapter" data-level="4.2" data-path="giao-diện-phần-mềm.html"><a href="giao-diện-phần-mềm.html#khu-vực-môi-trường-làm-việc"><i class="fa fa-check"></i><b>4.2</b> Khu vực môi trường làm việc</a></li>
+<li class="chapter" data-level="4.3" data-path="giao-diện-phần-mềm.html"><a href="giao-diện-phần-mềm.html#tóm-tắt-bài-học"><i class="fa fa-check"></i><b>4.3</b> Tóm tắt bài học</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><i class="fa fa-check"></i><b>5</b> Quy trình phân tích dữ liệu cơ bản với R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#xác-định-câu-hỏi-phân-tích-mục-tiêu-phân-tích"><i class="fa fa-check"></i><b>5.1</b> Xác định câu hỏi phân tích (mục tiêu phân tích)</a></li>
+<li class="chapter" data-level="5.2" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#thiết-lập-môi-trường-quản-lý-phân-tích-dữ-liệu"><i class="fa fa-check"></i><b>5.2</b> Thiết lập môi trường quản lý phân tích dữ liệu</a></li>
+<li class="chapter" data-level="5.3" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#chuẩn-bị-và-nhập-dữ-liệu-vào-r"><i class="fa fa-check"></i><b>5.3</b> Chuẩn bị và nhập dữ liệu vào R</a></li>
+<li class="chapter" data-level="5.4" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#kiểm-tra-và-làm-sạch-dữ-liệu"><i class="fa fa-check"></i><b>5.4</b> Kiểm tra và làm sạch dữ liệu</a></li>
+<li class="chapter" data-level="5.5" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#xuất-dữ-liệu-đã-làm-sạch"><i class="fa fa-check"></i><b>5.5</b> Xuất dữ liệu đã làm sạch</a></li>
+<li class="chapter" data-level="5.6" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#phân-tích-mô-tả"><i class="fa fa-check"></i><b>5.6</b> Phân tích mô tả</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#xây-dựng-bảng-mô-tả-đơn-biến"><i class="fa fa-check"></i><b>5.6.1</b> Xây dựng bảng mô tả đơn biến</a></li>
+<li class="chapter" data-level="5.6.2" data-path="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html"><a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#xây-dựng-bảng-mô-tả-chéo"><i class="fa fa-check"></i><b>5.6.2</b> Xây dựng bảng mô tả chéo</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">CẨM NANG: R DÀNH CHO MỌI NGƯỜI <br /> R4All</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Quy trình phân tích dữ liệu cơ bản với R<a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><Add image></p>
+<p>(Source: R for Data science)</p>
+<p>Chào mừng mọi người đã đến với bài giảng tiếp theo trong chuỗi bài giảng chia sẻ <strong>R4All</strong>. Bài giảng này sẽ hướng dẫn cho mọi người một cái nhìn khái quát về quy trình phân tích dữ liệu nói chung và cách lồng ghép R vào quy trình này để đạt được mục tiêu phân tích.</p>
+<p>Qua quá trình làm việc với nhiều bạn sinh viên cũng như các anh chị khi mới bắt đầu vào phân tích, mọi người thường không nắm rõ một quy trình phân tích cụ thể. Lý do chủ quan là do các anh chị và các bạn này mới bắt đầu vào phân tích, lý do khách quan là không có nhiều tài liệu đề cập đến vấn đề này dù rằng đây là một vấn đề rất cơ bản và quan trọng cho bất cứ cá nhân nào thực hiện phân tích dữ liệu.</p>
+<p>Do vậy sau khi đọc xong bài giảng này, anh chị và các bạn sẽ hiểu được một quy trình cơ bản trong phân tích dữ liệu từ đó đặt ra mục tiêu để có những chiến thuật phân tích phù hợp. Theo kinh nghiệm bản thân và từ các tài liệu tham khảo, phân tích dữ liệu thường trải qua các bước sau: * Bước 1. Xác định câu hỏi phân tích/ mục tiêu phân tích. * Bước 2. Thiết lập môi trường quản lý phân tích dữ liệu * Bước 3. Chuẩn bị và nhập dữ liệu vào R * Bước 4. Kiểm tra và làm sạch dữ liệu * Bước 5. Xuất dữ liệu đã làm sạch * Bước 6: Phân tích mô tả</p>
+<div id="xác-định-câu-hỏi-phân-tích-mục-tiêu-phân-tích" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Xác định câu hỏi phân tích (mục tiêu phân tích)<a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#xác-định-câu-hỏi-phân-tích-mục-tiêu-phân-tích" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Việc xác định mục tiêu phân tích cực kì quan trọng vì nó giúp anh chị tập trung hơn và tránh lạc hướng trong quá trình xử lý dữ liệu. Bên cạnh đó việc xác định mục tiêu phân tích cũng giúp anh chị xác định các phương pháp thống kê cần thiết cho phân tích dữ liệu và các nguồn số liệu cần thiết. Qua đó giúp chúng ta tiết kiệm thời gian và nguồn lực phân tích. Trong quá trình xác định mục tiêu phân tích, chúng ta cũng có thể tham khảo ý kiến góp ý từ những người xung quang, các giáo viên hướng dẫn, anh chị và bạn bè. Mục tiêu phân tích có thể được xây dựng dựa vào mục tiêu nghiên cứu, khung lý thuyết trong nghiên cứu. Trong mục tiêu phân tích chúng ta cần xác định được cơ bản các yếu tố sau: Cấp độ phân tích: mô tả, xây dựng mô hình, tìm kiếm mối quan hệ (Tìm hiểu các cấp độ phân tích trong nghiên cứu…)</p>
+<ul>
+<li><p>Xác định các biến số</p></li>
+<li><p>Biến số chính hay kết quả (Biến số phụ thuộc) và các biến số liên quan. Ví dụ: Phân tích số lượng ca mắc COVID-19 và các yếu tố liên quan ở các quốc gia châu Á.</p></li>
+<li><p>Từ mục tiêu trên, chúng ta có thể xác định được số lượng ca mắc COVID-19 là biến số chính cần quan tâm. Các biến số liên quan gồm: danh sách tên các quốc gia thuộc châu Á, Các yếu tố ảnh hưởng đến số lượng ca mắc: chính sách phòng dịch, tỷ lệ bao phủ vắc xin, tỷ lệ xét nghiệm COVID-19, đặc điểm sức khỏe dân số của quốc gia đó, …</p></li>
+<li><p>Cấp độ phân tích ở đây là mô tả và xây dựng mô hình để phát hiện các yếu tố liên quan.</p></li>
+</ul>
+</div>
+<div id="thiết-lập-môi-trường-quản-lý-phân-tích-dữ-liệu" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Thiết lập môi trường quản lý phân tích dữ liệu<a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#thiết-lập-môi-trường-quản-lý-phân-tích-dữ-liệu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Nhiều người khi mới bắt đầu sử dụng có xu hướng bắt tay vào phân tích ngay lập tức và không chuẩn bị môi trường quản lý dữ liệu. Điều này dẫn đến tác hại lâu dài trong việc quản lý phân tích dữ liệu và làm tốn rất nhiều thời gian để truy tìm file sau này vì bị lạc mất file, xóa nhầm, quên mất phiên bản phân tích mới nhất, gặp trở ngại khi chia sẻ project với những người xung quanh… Do vậy hay dành chút thời gian thiết lập môi trường và tạo thói quen trước khi bắt đầu các bước phân tích dữ liệu đầu tiên. Đầu tiên chúng ta cần tạo một thư mục và đặt tên thư mục theo tên dự án ngắn gọn. Trong thư mục này, chúng ta sẽ tạo ra các thư mục con gồm: dataset, scripts (code), results, plots. Mọi người có thể tham khảo hình bên dưới để biết rõ hơn về cách xây dựng hệ thống thư mục trong project.</p>
+<ul>
+<li>Tạo R projects – Tiếp cận với R một cách hệ thống</li>
+</ul>
+<p>Nếu anh chị nào có kinh nghiệm làm việc với các phần mềm thống kế khác như STATA hay SAS, anh chị có gặp trường hợp tải câu lệnh về nhưng khi chạy lệnh không thể mở file lên được và luôn báo lỗi đường dẫn này không tồn tại. Đây chính là lý do chúng ta cần nắm một khái niệm cơ bản đó là đường dẫn tuyệt đối và đường dẫn tương đối trong khi làm việc với các phần mềm lập trình, và R không là ngoại lệ. Đường dẫn ở đây là con đường chúng ra cần vạch ra để giúp R có thể lấy được các file dữ liệu hoặc file câu lệnh. Nếu chúng ta sử dụng đường dẫn tuyệt đối -&gt; chúng ta sẽ gặp nhiều vấn đề khi mở file câu lệnh, dữ liệu trên máy tính khác do đường dân này đã bị thay đổi ở máy khác và đây được gọi là hiện tượng đứt gãy liên kết. Từ đó người ta đã phát minh ra loại đường dẫn linh hoạt hơn gọi là đường dẫn tương đối, chúng ta chỉ quan tâm phần ngọn, còn phần gốc có thể tùy nhỉ.</p>
+<ul>
+<li>Để hiểu hơn cùng xem ví dụ dưới dây:</li>
+</ul>
+<p>Đường dẫn tuyệt đối: “G:DriveProjectsproject” Đường dẫn tương đối: “…Projectsproject” Về phần này, em sẽ trình bày rõ hơn trong phần tiếp theo nhập và xuất dữ liệu.</p>
+</div>
+<div id="chuẩn-bị-và-nhập-dữ-liệu-vào-r" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Chuẩn bị và nhập dữ liệu vào R<a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#chuẩn-bị-và-nhập-dữ-liệu-vào-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Một điểm rất nổi bật từ R đó là có thể đọc được nhiều loại file khác nhau. Hôm nay mình sẽ giới thiệu anh chị một số cách để nhập dữ liệu vào R cũng như một số bước để nhập dữ liệu</p>
+<ul>
+<li><p>Bước 1. Xác định vị trí file dữ liệu Để nhập dữ liệu vào R có hệ thống, anh chị cần tải hết tất cả các file dữ liệu có liên quan vào thư mục dataset chúng ta đã tạo trước đó.</p></li>
+<li><p>Bước 2. Xác định được định dạng dữ liệu Sau đó chúng ta cần xác định các định dạng đuôi của file chúng ta nhập vào. Một số định dạng file dữ liệu thường gặp gồm: csv (định dạng file các cột được chia cách bằng dấu phẩy), excel, RData (lưu trữ dữ liệu và các tệp đối tượng trên R), Rds (lưu trữ dữ liệu trên R), sav, sas, STATA.</p></li>
+</ul>
+<p><em>Lưu ý</em>: trong quá trình phân tích dữ liệu khi xuất file thường chọn file csv vì nó giúp hỗ trợ nhận diện từ nhiều phần mềm. Tuy nhiên việc lưu trữ file dữ liệu bằng RData hoặc RDs có một điểm rất thuận lợi đó là giữ lại được định dạng của các tệp dữ liệu, bảng biểu đã được tạo ra trong quá trình phân tích.</p>
+<ul>
+<li><p>Bước 3. Dùng hàm package trong R để nhập dữ liệu Một số package dùng để nhập dữ liệu vào R bao gồm</p></li>
+<li><p>Bước 4: Mở file dữ liệu và kiểm tra sơ bộ dữ liệu nhập vào có hoàn chỉnh.</p>
+<ul>
+<li>Nếu file dữ liệu nhập vào hoàn chỉnh, chúng ta sẽ đi đến bước tiếp theo</li>
+<li>Nếu không chung ta sẽ cần kiểm tra lại file dữ liệu và sử dụng hàm nhập khác ở bước 3. VD: Nhập dữ liệu từ file excel<br />
+</li>
+</ul></li>
+<li><p>Bước 5. Ghép nối dữ liệu nếu cần Về cơ bản có 3 kiểu ghép nối dữ liệu Ghép dữ liệu dựa vào bổ sung thêm hàng Ghép dữ liệu dựa vào bổ sung thêm cột Ghép dữ liệu dựa vào mã ID Ngoài ra, còn có một số cách nâng cao để nhập dữ liệu từ trang web trực tiếp và không cần phải tải dữ liệu.</p></li>
+</ul>
+</div>
+<div id="kiểm-tra-và-làm-sạch-dữ-liệu" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Kiểm tra và làm sạch dữ liệu<a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#kiểm-tra-và-làm-sạch-dữ-liệu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sau khi nhập dữ liệu, một số câu hỏi chúng ta cần đặt ra đó là: - Dữ liệu có nhiều missing data không - Các biến số ghi nhận vào có định dạng đúng không? - Có nhiều giá trị outliers trong các nhóm biến không? - Có biến số nào chúng ta cần nhóm lại không? - Biến số nào cần tính toán lại? - Liệu chúng ta có cần dùng hết bộ dữ liệu hay chỉ cần giữ lại các biến số chúng ta thực sự quan tâm? Sau đây, em sẽ giới thiệu mọi người các bước kiểm tra và làm sạch dữ liệu cũng như các cú pháp câu lệnh giúp trả lời hết các vấn đề nếu trên</p>
+<ul>
+<li><p>Bước 1. Nhìn sơ qua bộ dữ liệu để kiểm tra các định dạng biến, các giá trị outliers,… - str df -&gt; xác định danh sách biến định lượng, định tính. =&gt; xác định các biến có định dạng sai -&gt; Lựa chọn các biến cần thiết và không cần thiết =&gt; lọc lại data -Xác định các biến số mới cần thiết để tính toán dựa trên các biến số cũ =&gt; mutate với điều kiện Mutate(varA’ = VarA/100)</p></li>
+<li><p>Bước 2. Bảng tần số để đánh giá phân bố dữ liệu của biến số định tính -&gt; xác định các nhóm biến số rời rạc =&gt; Tiến hành gộp nhóm Mutate( varB = case_when( ) Bước 3. Dùng đồ thị để xác định phân bố dữ liệu của biến số định lượng =&gt; Tiến hàng lọc các giá trị</p></li>
+</ul>
+<p>Bước 4. Kiểm tra tính logic giữa các biến. Chúng ta sẽ lựa chọn các câu hỏi có liên quan và dựa vào bảng tần số để kiểm tra.</p>
+</div>
+<div id="xuất-dữ-liệu-đã-làm-sạch" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Xuất dữ liệu đã làm sạch<a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#xuất-dữ-liệu-đã-làm-sạch" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sau khi đã làm sạch dữ liệu – chúng ta cần lưu trữ lại để tiết kiệm thời gian Ưu nhược điểm của một số định dạng file phổ biến</p>
+<table>
+<colgroup>
+<col width="23%" />
+<col width="43%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Định dạng file</th>
+<th>Ưu điểm</th>
+<th>Nhược điểm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>csv</td>
+<td>File dữ liệu có thể mở ở nhiều phần mềm khác nhau không cần chuyển đối</td>
+<td>Không có lưu trữ được định dạng</td>
+</tr>
+<tr class="even">
+<td>Excel</td>
+<td>Là một định dạng khá phổ biến</td>
+<td>Có nhiều format cần xác định rõ trước khi nhập dữ liệu Tốc độ nhập dữ liệu chậm</td>
+</tr>
+<tr class="odd">
+<td>Rds/ RData</td>
+<td>Đây là dạng dữ liệu R giúp lưu trữ định dạng của các biến và dữ liệu Giúp nhập dữ liệu nhanh và hiệu quả</td>
+<td>Chỉ đọc được dữ liệu ở phần mềm R</td>
+</tr>
+</tbody>
+</table>
+<p>Câu lệnh để xuất dữ liệu chúng sẽ áp dụng câu lệnh dưới đây. <code>{r} export([tên data xuất] ,here(["tên thư mục"], ["tên file"]))</code> Với dữ liệu đã được làm sạch, chúng ta sẽ đến với bước khai phá dữ liệu gồm <strong>3 bước là 6, 7, 8</strong>. Ba bước này tạo ra một vòng lặp giúp tạo ra một kết quả cuối cùng và phiên giải kết quả.</p>
+<p><Hình các bước khai phá dữ liệu></p>
+</div>
+<div id="phân-tích-mô-tả" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Phân tích mô tả<a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#phân-tích-mô-tả" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Chúng ta có thể xây dựng bảng đơn và bảng chéo dựa vào nhóm câu lệnh group_by and summarize Tạo bảng đơn: + Bảng đơn cho định tính + Bảng đơn cho biến định lượng Tạo bảng chéo: + Bảng chéo cho biến định tính x định tính + Bảng chéo cho biến định tính x định lượng</p>
+<div id="xây-dựng-bảng-mô-tả-đơn-biến" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Xây dựng bảng mô tả đơn biến<a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#xây-dựng-bảng-mô-tả-đơn-biến" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Biến định tính Data %&gt;% Biến định lượng</li>
+</ul>
+</div>
+<div id="xây-dựng-bảng-mô-tả-chéo" class="section level3 hasAnchor" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> Xây dựng bảng mô tả chéo<a href="quy-trình-phân-tích-dữ-liệu-cơ-bản-với-r.html#xây-dựng-bảng-mô-tả-chéo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Biến định tính x định lượng</p></li>
+<li><p>Biến định tính x định tính</p></li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="giao-diện-phần-mềm.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-citations.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

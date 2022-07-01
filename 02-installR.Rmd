@@ -1,0 +1,29 @@
+# Hướng dẫn cài đặt phần mềm
+
+Bài hướng dẫn này sẽ giúp anh chị tải và cài đặt phần mềm R. Về cơ bản, chúng ta cần cài đặt 2 phần mềm bao gồm **R base** và **R studio**.
+
+-   R base là phần mềm gốc xuất hiện đầu tiên, có thể thực hiện các câu lệnh phân tích. Có thể xem **R base** là một cái lõi.
+
+-   Tuy nhiên, để tăng hiệu suất làm việc với R, các nhà nghiên cứu đã thiết ra một phần mềm bổ sung với giao diện trực quan, hỗ trợ cú pháp dòng lệnh, đề xuất tên biến,... Đó là **R Studio**.
+
+Vậy để tải và cài đặt phần mềm này, anh chị vui lòng thực hiện các bước cơ bản sau:
+
+## Tải phần mềm.
+
+Để tải R base và R Studio anh chị vào địa chỉ trang web sau:
+
+-   R base: <https://www.r-project.org/>
+
+-   R Studio: <https://www.rstudio.com/products/rstudio/download/#download>
+
+## Cài đặt.
+
+Anh chị lưu ý là **cần cài đặt R base trước và R studio sau.** Khi khởi động cài đặt, anh chị có thể chọn theo mặc định của phần mềm. Sau này nếu anh chị thấy đã thuần thục về R có thể cài đặt lại và thay đổi các tùy chọn cài đặt nâng cao của R base hay R Studio.
+
+## Khởi động phần mềm.
+
+Lúc này chúng ta sẽ kiểm tra giao diện cụ thể.
+
+**!Một số lưu ý:**
+
+Khi tải phần mềm cần chọn đúng phiên bản để tương thích với hệ điều hành window bạn đang sử dụng (32x hay 64x). Để kiểm tra phiên bản window, anh chị bấm biểu tượng my computer, sau đó click chuột phải chọn properties để kiểm tra.

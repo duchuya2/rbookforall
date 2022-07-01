@@ -1,0 +1,19 @@
+# Tại sao lại chọn R ?
+
+## Những lợi ích khi học R
+
+**Cái lợi đầu tiên nhất** -- Đó là nó hoàn toàn miễn phí. Nhiều người nói *"của cho là của ôi"* nhưng câu này hoàn toàn không đúng với R nhé. Của cho miễn phí hoàn toàn nhưng chất lượng thì miễn bàn. Vấn đề ở đây là bạn có đủ sức để khai thác hết tiềm năng của phần mềm này hay không.
+
+**Cộng đồng học R rất mạnh và hùng hậu** trên thế giới -- trong phân tích thống kê, có rất nhiều cộng đồng R ở các nước khác nhau. Nếu bạn có chút tiếng anh, hoặc không cần cũng được, cứ để anh google dịch lo bạn chỉ cần copy cái lỗi và tìm kiếm bài đăng. Bạn sẽ thấy hàng loạt bài đăng giải đáp thắc mắc trên mạng.
+
+**R đã rất phổ biến trong nghiên cứu khoa học**.Nếu bạn đọc giả các tập san uy tín, bạn sẽ phát hiện rất nhiều bài báo trong số đó dùng R. Nói đúng ra, học R sẽ giúp các bạn giao tiếp ngôn ngữ thống kê và hội nhập nhanh hơn với các phương pháp phân tích nghiên cứu khoa học trên toàn thế giới.
+
+Thêm một điểm nhỏ nữa, vì R cũng là một ngôn ngữ lập trình, nếu bạn thuần thục nó trong tương lai bạn sẽ tiếp thu các ngôn ngữ lập trình khác nhanh hơn như Python hay sử dụng syntax trong SPSS, STATA.
+
+**R cực kì mạnh trong thống kê** so với các phần mềm khác như STATA, SPSS. Nhìn vào bảng so sánh này, bạn sẽ thấy R tiềm năng như thế nào?
+
+## Một số rào càn khi học R
+
+Vậy có bạn sẽ hỏi tại sao, một phần mềm thống kê hay, xịn, miễn phí như R lại không phổ biến tại VN. Mình nghĩ có một số lý do sau: - Nhiều người quan niệm, ngôn ngữ lập trình quá khó, khó đến mức không dám thử sức với nó. Nhưng tin mình đi nếu bạn đã học xong môn lập trình tin học cấp 2, R thật sự còn dễ hơn Pascal. Chỉ quan trọng là bạn có mở lòng ra với nó hay không. - Nhiều người đã quen với SPSS, STATA nên ngại học 1 ngôn ngữ mới. Tùy vào quan điểm mỗi người nhưng mình thấy R khắc phục được những hạn chế của 2 phần mềm trên: mở nhiều data cùng 1 lúc, xây dựng bản đồ tương tác, bản đồ phức tạp.
+
+Nói tóm lại, khó hay không là do chính các bạn! Nếu các bạn tin mình, bạn sẽ cảm thấy mọi thứ chỉ khó khi mới bắt đầu dần dần phần mềm R sẽ đem lại nhiều điều thú vị. Hãy thử mở lòng và học hỏi thêm 1 phần mềm mới. Nó thật sự giúp các bạn nhiều lợi ích hơn những gì bạn nghĩ \^\^ Nói đã khá nhiều, bây giờ nếu các bạn đã sẵn sàng hãy cùng bắt đầu hành trình chinh phục R.
